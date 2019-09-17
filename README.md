@@ -6,5 +6,5 @@
 
 ###### The responses received show that it is possible to build a quality smart lamp with a power consumption of 15W that resembles the lighting of a 100W incandescent lamp with great energy savings and smart technology.
 
-# [Progressive Web App](http://https://sensationled.herokuapp.com "App")
-![](https://sensationled.herokuapp.com/img/sled.webp)
+# [Progressive Web App](sensationled.herokuapp.com "App")
+![](sensationled.herokuapp.com/img/sled.webp)
