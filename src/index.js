@@ -43,7 +43,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
 app.use(
   session({
-    secret: "Diynamic",
+    secret: process.env.SECRET_SESSION,
     resave: true,
     saveUninitialized: false,
     store: new MongoStore({
@@ -58,8 +58,8 @@ app.use(
     hosts: [
       "127.0.0.1:3000",
       `localhost:${app.get("port")}`,
-      "sensationl3d.herokuapp.com/",
-      /.*\.sensationl3d\.herokuapp\.com$/
+      "sensationled.herokuapp.com/",
+      /.*\.sensationled\.herokuapp\.com$/
     ]
   })
 );
