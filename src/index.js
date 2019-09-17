@@ -61,7 +61,7 @@ app.use(
       "sensationled.herokuapp.com/",
       /.*\.sensationled\.herokuapp\.com$/
     ],
-    referers: ['https://sensationled.herokuapp.com'] 
+    referers: [/^https:\/\/sensationled\.herokuapp\.com\//]
   })
 );
 
