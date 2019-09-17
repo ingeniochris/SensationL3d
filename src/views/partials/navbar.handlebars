@@ -1,0 +1,78 @@
+<header>
+  <nav class="navbar navbar-expand-xl navbar-dark bg-dark  ">
+    <a class="navbar-brand ">
+      <img class="rounded-circle" src="/img/60.png" width="50" height="50" class="d-inline-block align-center" alt="">
+      SensationL3D
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        {{#if user}}
+        <li class="nav-item active">
+          <a class="nav-link" href="/colors/add">
+            <img src="https://img.icons8.com/offices/20/000000/rgb-circle-1.png">
+            Control</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/colors">
+            <img src="https://img.icons8.com/color/20/000000/color-palette.png">
+            Mis-colores</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/colors/galery">
+            <img src="https://img.icons8.com/color/20/000000/living-room.png">
+            Ambienta-tu-espacio</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/about">
+            <img src="https://img.icons8.com/color/20/000000/rgb-lamp.png">
+            Acerca-de</a>
+        </li>
+        <li class="nav-item active">
+          <a href="/users/logout" class="nav-link">
+            <img src="https://img.icons8.com/color/20/000000/close-window.png">
+            Salir</a>
+        </li>
+        {{else}}
+        <li class="nav-item active">
+
+          <a class="nav-link" href="/">
+            <img src="https://img.icons8.com/color/20/000000/home.png">
+            Inicio</a>
+
+        </li>
+        <li class="nav-item active">
+          <a href="/users/login" class="nav-link">
+            <img src="https://img.icons8.com/color/20/000000/enter-2.png">
+            Entra
+          </a>
+        </li>
+        <li class="nav-item active">
+          <a href="/users/register" class="nav-link">
+            <img src="https://img.icons8.com/color/20/000000/add-user-male--v2.png">
+            Registrate
+          </a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/about">
+            <img src="https://img.icons8.com/color/20/000000/about.png">
+            Acerca-de
+          </a>
+        </li>
+        {{/if}}
+        <li class="nav-item active">
+          <button id="butInstall" class="btn btn-danger" type="button" aria-label="Install" hidden>
+            <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+            Instalar
+            <img src="https://img.icons8.com/color/20/000000/software-installer.png">
+          </button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>

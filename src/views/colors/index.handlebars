@@ -1,0 +1,29 @@
+<div class="container mt-3">
+    {{> msg}}
+      {{> errors}}
+  <div class="row overflow-hidden">
+    {{#each colors}}
+    <div class="col-md-3" data-aos="fade-up" data-aos-delay="600">
+     
+      <div class="card card-body " style="background-color:{{details}};">
+        <h4>{{title}}</h4>
+        <div style="padding:12px;background-color:{{details}};line-height:5;">
+        </div>
+        <button onclick="Color('{{details}}')" class="my btn btn-dark mb-2">Aplicar color</button>
+        <form action="/colors/delete/{{id}}?_method=DELETE" method="POST">
+          <input type="hidden" name="_method" value="DELETE">
+          <input type="submit" class="btn btn-danger btn-block" value="DELETE">
+        </form>
+      </div>
+    </div>
+    {{else}}
+    <div class="container">
+ <p>Aun no tienes colores agregados. </p>
+    <a href="/colors/add" class="btn btn-light btn-lg">Agrega algunos ahora!!!!</a>
+    </div>
+   
+    {{/each}}
+  </div>
+</div>
+
+<script src="/js/main.js"></script>

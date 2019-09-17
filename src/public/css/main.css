@@ -1,0 +1,62 @@
+body {
+  position: sticky;
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: #20002c; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #cbb4d4, #20002c);
+  background: linear-gradient(to bottom, #20002c, #cbb4d4);
+  color: antiquewhite;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-origin: border-box;
+  background-attachment: fixed;
+}
+nav {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+nav ul li a:hover {
+  border-bottom: 2px solid #ffc;
+}
+
+.logo {
+  width: 130px;
+  margin: auto;
+}
+.ovf {
+  overflow: hidden;
+}
+
+.romance {
+  background-color: #ff0000;
+  width: 15rem;
+}
+.motivacion {
+  background-color: #ffc300;
+  width: 18rem;
+}
+.creatividad {
+  background-color: #ff00cf;
+  width: 18rem;
+}
+
+.tranqui {
+  background-color: #0023ff;
+}
+.natu {
+  background-color: #00ff02;
+}
+.sensu {
+  background-color: #ff006d;
+}
+
+.kards {
+  width: 18rem;
+  box-shadow: 0 0 21px 1px #ffffff;
+}

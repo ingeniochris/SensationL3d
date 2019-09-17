@@ -1,0 +1,37 @@
+<div class="container overflow-hidden mt-2 ">
+  <div class="mx-auto" style="width: 320px;">
+    {{> msg}}
+      {{> errors}}
+    <div class="card  text-white bg-dark m-2 border border-dark rounded-sm   ">
+      <div class="card-header">
+        Ilumina tu espacio
+        <div class="btn-group-toggle float-right" data-toggle="buttons">
+          <label class="btn btn-secondary active " onclick="Color('#000000')">
+            <input type="radio" autocomplete="off"  checked> Apagar
+          </label>
+        </div>
+      </div>
+      <form action="/colors/add" method="post" class="p-1">
+        <div class="colorwheel_large form-group mx-auto ">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" name="title" placeholder="Coloca un titulo a tu nuevo color" required>
+        </div>
+        <div class="form-group">
+          <label for="details">Color</label>
+          <input type="text" class="inputcolor form-control" name="details" value="#bc38bf" readonly>
+        </div>
+        <button type="submit" class="btn btn-danger">
+          Guardar color
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<script src="/js/raphael-min.js"></script>
+<script src="/js/colorwheel.js"></script>
+<script src="/js/main.js"></script>
+
+

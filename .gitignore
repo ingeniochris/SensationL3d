@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Logs
 logs
 *.log
@@ -59,3 +60,10 @@ typings/
 
 # next.js build output
 .next
+
+# config vscode
+.vscode/
+=======
+node_modules
+
+>>>>>>> Inicio del proyecto estructura de la App y modulos listos
