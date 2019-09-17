@@ -58,7 +58,7 @@ app.use(
     hosts: [
       "127.0.0.1:3000",
       `localhost:${app.get("port")}`,
-      "https://sensationl3d.herokuapp.com/",
+      "sensationl3d.herokuapp.com/",
       /.*\.sensationl3d\.herokuapp\.com$/
     ]
   })
