@@ -53,22 +53,20 @@ app.use(
 );
 app.use(morgan("dev"));
 // Redirect HTTP to HTTPS,
-app.use(
+/*app.use(
   hostValidation({
     hosts: [
       "127.0.0.1:3000",
       `localhost:${app.get("port")}`,
-      "sensationled.herokuapp.com/",
+      "sensationled.herokuapp.com",
       /.*\.sensationled\.herokuapp\.com$/
     ],
-    referers: ['https://sensationled.herokuapp.com/'],
-    mode: 'either',
     fail: (req, res, next) => {
       // send a 418 "I'm a Teapot" Error
       res.status(418).send('I\'m the office teapot. Refer to me only as such.')
   }
   })
-);
+);*/
 
 // Passport
 app.use(passport.initialize());
