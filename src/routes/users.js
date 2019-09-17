@@ -2,6 +2,9 @@ const router = require('express').Router();
 const User = require('../models/user');
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
+const Recaptcha = require('express-recaptcha').RecaptchaV3;
+
+const recaptcha = new Recaptcha(process.env.SITE_KEY, process.env.SECRET_KEY_RECAPTCHA ,{callback:'cb'});
 
 const { forwardAuthenticated  } = require('../helpers/auth');
 
@@ -18,11 +21,12 @@ router.post('/login', (req, res, next) => {
 });
 
 // REGISTER
-router.get('/register', forwardAuthenticated , (req, res) => {
+router.get('/register', forwardAuthenticated ,recaptcha.middleware.render, (req, res) => {
   res.render('users/register');
 });
 
-router.post('/register', async (req, res) => {
+router.post('/register',recaptcha.middleware.verify, async (req, res) => {
+  if (!req.recaptcha.error) {
   const {name, password} = req.body;  
   let errors = [];
   if(name.length<=0){
@@ -66,6 +70,10 @@ router.post('/register', async (req, res) => {
       res.redirect('/users/login');
     }
   }
+} else {
+  req.flash("error_msg", "Por favor seleccione RECAPTCHA ");
+  res.redirect("back");
+}
 });
 
 router.get('/logout', (req, res) => {
