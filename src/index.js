@@ -61,7 +61,12 @@ app.use(
       "sensationled.herokuapp.com/",
       /.*\.sensationled\.herokuapp\.com$/
     ],
-    referers: [/^https:\/\/sensationled\.herokuapp\.com\//]
+    referers: [/^https:\/\/sensationled\.herokuapp\.com\//],
+    mode: 'either',
+    fail: (req, res, next) => {
+      // send a 418 "I'm a Teapot" Error
+      res.status(418).send('I\'m the office teapot. Refer to me only as such.')
+  }
   })
 );
 
