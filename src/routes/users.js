@@ -55,7 +55,7 @@ router.post('/register',recaptcha.middleware.verify, async (req, res) => {
     let user = await User.findOne({name: req.body.name});
     if (user) {
       req.flash('error_msg', 'El nombre ya esta registrado');
-      res.redirect('/users/login');
+      res.redirect('back');
     } else {
       const newUser = new User({
         name: req.body.name,
@@ -71,7 +71,7 @@ router.post('/register',recaptcha.middleware.verify, async (req, res) => {
     }
   }
 } else {
-  req.flash("error_msg", "Por favor seleccione RECAPTCHA ");
+  req.flash("error_msg", "Seleccione la casilla *No soy robot* ");
   res.redirect("back");
 }
 });
