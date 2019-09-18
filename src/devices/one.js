@@ -46,7 +46,7 @@ board.on("ready", function() {
                 led.intensity(n);
                 n-=10;  
 
-                console.log(n+"%");}led.stop();           
+                console.log(n+"%");}          
             },3000)   
         break;
         case 'rainbow':

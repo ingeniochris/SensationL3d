@@ -21,7 +21,7 @@
 
   function Effecty(effect){
     socket.emit('effect', effect);
-    effect.innerHTML = ' <div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Efecto aplicado</strong><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>'
+    applyeffect.innerHTML = ' <div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Efecto aplicado</strong><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>'
     console.log(effect);
   }
   

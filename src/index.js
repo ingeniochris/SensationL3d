@@ -37,7 +37,7 @@ require("./config/passport")(passport);
 
 // middlewares
 app.enable("trust proxy");
-//app.use(express_enforces_ssl());
+app.use(express_enforces_ssl());
 app.use(helmet());
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
