@@ -7,11 +7,18 @@ router.use((req, res, next) => {
   ensureAuthentication(req, res, next);
 });
 
+router.get("/", async (req, res) => {
+  let colors = await Color.find({ user: req.user.id }).sort({
+    details: "desc"
+  });
+  res.render("colors/index", {
+    colors
+  });
+});
+
+
 router.get("/add", (req, res) => {
   res.render("colors/add");
-});
-router.get("/galery", (req, res) => {
-  res.render("colors/galery");
 });
 
 router.post("/add", async (req, res) => {
@@ -44,14 +51,14 @@ router.post("/add", async (req, res) => {
   }
 });
 
-router.get("/", async (req, res) => {
-  let colors = await Color.find({ user: req.user.id }).sort({
-    details: "desc"
-  });
-  res.render("colors/index", {
-    colors
-  });
+router.get("/galery", (req, res) => {
+  res.render("colors/galery");
 });
+
+router.get("/effects",(req,res)=>{
+  res.render("colors/effects");
+});
+
 
 router.delete("/delete/:id", async (req, res) => {
   await Color.findByIdAndRemove(req.params.id);

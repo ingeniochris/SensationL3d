@@ -6,8 +6,11 @@
       <div class="card-header">
         Ilumina tu espacio
         <div class="btn-group-toggle float-right" data-toggle="buttons">
-          <label class="btn btn-secondary active " onclick="Color('#000000')">
-            <input type="radio" autocomplete="off"  checked> Apagar
+          <label class="btn btn-secondary active " onclick="Color('#eee1e1')" name="options" id="option1" autocomplete="off">
+            <input type="radio" autocomplete="off"  checked> On
+          </label>
+          <label class="btn btn-secondary " onclick="Color('#000000')" name="options" id="option2" autocomplete="off" >
+            <input type="radio" autocomplete="off"  checked> Off
           </label>
         </div>
       </div>
@@ -19,7 +22,7 @@
         </div>
         <div class="form-group">
           <label for="details">Color</label>
-          <input type="text" class="inputcolor form-control" name="details" value="#bc38bf" readonly>
+          <input type="text" class="inputcolor form-control" name="details" value="#e114e6" readonly>
         </div>
         <button type="submit" class="btn btn-danger">
           Guardar color

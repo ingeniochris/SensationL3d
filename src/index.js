@@ -86,6 +86,7 @@ app.use((req, res, next) => {
 app.use(require("./routes/index"));
 app.use("/colors", require("./routes/colors"));
 app.use("/users", require("./routes/users"));
+app.use("/colors", require("./routes/colors"));
 
 // static folder
 app.use(express.static(path.join(__dirname, "public")));
@@ -128,4 +129,9 @@ io.on("connection", function(socket) {
     console.log("clicked", data);
     io.sockets.emit("applywemos", data);
   });
+
+  socket.on('effect', function(data){
+    console.log("clicked", data);
+    io.sockets.emit("effectwemos", data);
+  })
 });
