@@ -50,12 +50,13 @@ board.on("ready", function() {
             },3000)   
         break;
         case 'rainbow':
-          const index1 = 0;
+          let index1 = 0;
           const rainbow1 = ["FF0000", "FF7F00", "FFFF00", "00FF00", "0000FF", "4B0082", "8F00FF"];
         
           board.loop(1000, () => {
-            rgb.color(rainbow1[index1++]);
+            led.color(rainbow1[index1++]);
             if (index1 === rainbow1.length) {
+              
               index1 = 0;
             }
           });
@@ -69,7 +70,7 @@ board.on("ready", function() {
             if (index + 1 === rainbow.length) {
               index = 0;
             }
-            rgb.color(rainbow[index++]);
+            led.color(rainbow[index++]);
           });
         break;   
         case 'stop':
