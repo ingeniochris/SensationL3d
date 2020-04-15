@@ -9,13 +9,12 @@ router.use((req, res, next) => {
 
 router.get("/", async (req, res) => {
   let colors = await Color.find({ user: req.user.id }).sort({
-    details: "desc"
+    details: "desc",
   });
   res.render("colors/index", {
-    colors
+    colors,
   });
 });
-
 
 router.get("/add", (req, res) => {
   res.render("colors/add");
@@ -35,13 +34,13 @@ router.post("/add", async (req, res) => {
     res.render("colors/add", {
       errors,
       title,
-      details
+      details,
     });
   } else {
     const newColor = {
       title: req.body.title,
       details: req.body.details,
-      user: req.user.id
+      user: req.user.id,
     };
     let col = new Color(newColor);
     await col.save();
@@ -55,10 +54,9 @@ router.get("/galery", (req, res) => {
   res.render("colors/galery");
 });
 
-router.get("/effects",(req,res)=>{
+router.get("/effects", (req, res) => {
   res.render("colors/effects");
 });
-
 
 router.delete("/delete/:id", async (req, res) => {
   await Color.findByIdAndRemove(req.params.id);

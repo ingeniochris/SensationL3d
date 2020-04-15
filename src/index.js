@@ -1,18 +1,17 @@
-require ('dotenv').config();
+require("dotenv").config();
 const path = require("path");
 const express = require("express");
 const exphbs = require("express-handlebars");
-const bodyParser = require("body-parser");
 const methodOverride = require("method-override");
 const session = require("express-session");
-const MongoStore = require ('connect-mongo')(session);
+const MongoStore = require("connect-mongo")(session);
 const flash = require("connect-flash");
 const passport = require("passport");
 const app = express();
 const morgan = require("morgan");
 const helmet = require("helmet");
 const http = require("http");
-const express_enforces_ssl = require('express-enforces-ssl');
+const express_enforces_ssl = require("express-enforces-ssl");
 const hostValidation = require("host-validation");
 
 // db connection
@@ -20,14 +19,14 @@ const mongoose = require("mongoose");
 const db = require("./config/database");
 
 // settings
-app.set("port", process.env.PORT );
+app.set("port", process.env.PORT);
 app.set("views", path.join(__dirname, "views"));
 app.engine(
   "handlebars",
   exphbs({
     layoutsDir: path.join(app.get("views"), "layouts"),
     partialsDir: path.join(app.get("views"), "partials"),
-    defaultLayout: "main"
+    defaultLayout: "main",
   })
 );
 app.set("view engine", "handlebars");
@@ -47,8 +46,8 @@ app.use(
     resave: true,
     saveUninitialized: false,
     store: new MongoStore({
-      mongooseConnection: db
-    })
+      mongooseConnection: db,
+    }),
   })
 );
 app.use(morgan("dev"));
@@ -86,24 +85,22 @@ app.use((req, res, next) => {
 app.use(require("./routes/index"));
 app.use("/colors", require("./routes/colors"));
 app.use("/users", require("./routes/users"));
-app.use("/colors", require("./routes/colors"));
 
 // static folder
 app.use(express.static(path.join(__dirname, "public")));
 
 //404
-app.use((req,res,next)=>{
-  res.status(400).sendFile(path.join(__dirname, 'public','404.html'));
+app.use((req, res, next) => {
+  res.status(400).sendFile(path.join(__dirname, "public", "404.html"));
 });
 
 // Unhandled errors (500)
-app.use(function(err, req, res, next) {
-  console.error('An application error has occurred:');
+app.use(function (err, req, res, next) {
+  console.error("An application error has occurred:");
   console.error(err);
   console.error(err.stack);
-  res.status(500).sendFile(path.join(__dirname, 'public', '500.html'));
+  res.status(500).sendFile(path.join(__dirname, "public", "500.html"));
 });
-
 
 //server
 const server = http.createServer(app).listen(app.get("port"), () => {
@@ -113,25 +110,25 @@ const server = http.createServer(app).listen(app.get("port"), () => {
 // socket.io y johnny five
 const io = require("socket.io")(server);
 
-io.on("connection", function(socket) {
+io.on("connection", function (socket) {
   socket.emit("conectate", { connected: true });
   console.log("Un usuario conectado ID :", socket.id);
-  socket.on("changeColor", function(data) {
+  socket.on("changeColor", function (data) {
     console.log("Cliente ID : " + socket.id + " _  COLOR : " + data);
     io.sockets.emit("parawemos", data);
   });
 
-  socket.on("retorno_wemos", function(data) {
+  socket.on("retorno_wemos", function (data) {
     socket.emit("retorno", data);
   });
 
-  socket.on("applycolor", function(data) {
+  socket.on("applycolor", function (data) {
     console.log("clicked", data);
     io.sockets.emit("applywemos", data);
   });
 
-  socket.on('effect', function(data){
+  socket.on("effect", function (data) {
     console.log("clicked", data);
     io.sockets.emit("effectwemos", data);
-  })
+  });
 });
