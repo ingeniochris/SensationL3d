@@ -36,7 +36,7 @@ require("./config/passport")(passport);
 
 // middlewares
 app.enable("trust proxy");
-app.use(express_enforces_ssl());
+//app.use(express_enforces_ssl());
 app.use(helmet());
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
@@ -111,15 +111,19 @@ const server = http.createServer(app).listen(app.get("port"), () => {
 const io = require("socket.io")(server);
 
 io.on("connection", function (socket) {
-  socket.emit("conectate", { connected: true });
-  console.log("Un usuario conectado ID :", socket.id);
+
   socket.on("changeColor", function (data) {
     console.log("Cliente ID : " + socket.id + " _  COLOR : " + data);
     io.sockets.emit("parawemos", data);
   });
 
-  socket.on("retorno_wemos", function (data) {
+  /*socket.on("retorno_wemos", function (data) {
     socket.emit("retorno", data);
+  });*/
+
+  socket.on('onoff', (lamp)=>{
+    console.log('Information : ',lamp)
+    io.sockets.emit('onOn', lamp)
   });
 
   socket.on("applycolor", function (data) {
@@ -127,8 +131,8 @@ io.on("connection", function (socket) {
     io.sockets.emit("applywemos", data);
   });
 
-  socket.on("effect", function (data) {
+  /*socket.on("effect", function (data) {
     console.log("clicked", data);
     io.sockets.emit("effectwemos", data);
-  });
+  });*/
 });

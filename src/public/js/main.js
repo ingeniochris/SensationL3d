@@ -9,9 +9,29 @@
     socket.emit("changeColor", data.hex);
     console.log(data.hex);
   });
-  socket.on("retorno", function(data) {
+ /* socket.on("retorno", function(data) {
     console.log(data);
-  });
+  });*/
+
+  socket.on('onOn', ({name,powerOn})=>{
+    if(powerOn){
+      idOnOff.innerHTML= `
+      <li class="nav-item active">
+      <span>
+      <img src="https://img.icons8.com/color/20/000000/online.png" alt="icon"/>
+        Lampara Online</span>
+    </li>
+      `
+    }else{
+      idOnOff.innerHTML= `
+      <li class="nav-item active">
+      <span>
+      <img src="https://img.icons8.com/color/48/000000/offline.png" alt="off"/>
+        Lampara Offline</span>
+    </li>
+      `
+    }
+  })
 
   function Color(color) {
     socket.emit("applycolor", color);
@@ -19,10 +39,10 @@
     console.log(color);
   }
 
-  function Effecty(effect){
+  /*function Effecty(effect){
     socket.emit('effect', effect);
     applyeffect.innerHTML = ' <div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Efecto aplicado</strong><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>'
     console.log(effect);
-  }
+  }*/
   
   
