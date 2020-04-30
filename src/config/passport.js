@@ -3,7 +3,7 @@ const bcrypt = require("bcryptjs");
 
 const User = require("../models/user");
 
-module.exports = (passport) => {
+module.exports = passport => {
   passport.serializeUser((user, done) => {
     done(null, user.id);
   });
