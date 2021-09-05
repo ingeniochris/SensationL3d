@@ -27,7 +27,7 @@
         "express-recaptcha": "^5.0.1",
         "express-session": "^1.17.0",
         "firmata": "^2.2.0",
-        "handlebars": "^4.5.3",
+        "handlebars": "^4.5.0",
         "helmet": "^3.22.0",
         "host-validation": "^2.0.1",
         "johnny-five": "^1.4.0",
