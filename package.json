@@ -34,7 +34,7 @@
         "method-override": "^3.0.0",
         "mongoose": "^5.9.9",
         "morgan": "^1.10.0",
-        "passport": "^0.4.1",
+        "passport": "^0.6.0",
         "passport-local": "^1.0.0",
         "serialport": "^8.0.7",
         "socket.io": "^2.4.0",
